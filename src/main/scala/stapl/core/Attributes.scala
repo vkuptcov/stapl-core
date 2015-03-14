@@ -27,20 +27,7 @@ sealed abstract class Attribute(val cType: AttributeContainerType, val name: Str
   override def getConcreteValue(ctx: EvaluationCtx) =
     ctx.findAttribute(this)
 }
-object Attribute {
 
-  /**
-   * A constructor to get a ListAttribute or SimpleAttribute depending on the
-   * given multiplicity.
-   */
-  def apply(cType: AttributeContainerType, name: String, aType: AttributeType, multiValued: Boolean): Attribute = {
-    if (multiValued) {
-      new ListAttribute(cType, name, aType)
-    } else {
-      new SimpleAttribute(cType, name, aType)
-    }
-  }
-}
 
 case class ListAttribute(ct: AttributeContainerType, n: String, at: AttributeType)
   extends Attribute(ct, n, at) {
