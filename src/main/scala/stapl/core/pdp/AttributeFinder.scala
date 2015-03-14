@@ -20,14 +20,8 @@
 package stapl.core.pdp
 
 import scala.annotation.tailrec
-import stapl.core.Attribute
-import stapl.core.AttributeContainerType
-import stapl.core.AttributeNotFoundException
-import stapl.core.AttributeType
-import stapl.core.ConcreteValue
-import stapl.core.ListAttribute
-import stapl.core.SimpleAttribute
-import stapl.core.TypeCheckException
+
+import stapl.core.{Attribute, AttributeContainerType, AttributeType, ConcreteValue, ListAttribute, SimpleAttribute}
 
 /**
  * Class used for representing an attribute finder used by a PDP. An attribute

@@ -20,9 +20,6 @@
 package stapl.core
 
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Try, Success, Failure}
 
 sealed abstract class Operation extends Value
 

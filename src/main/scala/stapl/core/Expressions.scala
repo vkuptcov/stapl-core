@@ -19,11 +19,7 @@
  */
 package stapl.core
 
-import java.util.Date
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import concurrent.ExecutionContext.Implicits.global
-import scala.util.{Try, Success, Failure}
 
 abstract class Expression {
   def evaluate(implicit ctx: EvaluationCtx): Boolean

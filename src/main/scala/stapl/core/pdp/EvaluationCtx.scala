@@ -19,27 +19,11 @@
  */
 package stapl.core.pdp
 
-import grizzled.slf4j.Logging
-import stapl.core.ConcreteValue
-import stapl.core.Attribute
-import stapl.core.AttributeContainerType
-import stapl.core.AttributeNotFoundException
-import stapl.core.PermitOverrides
-import stapl.core.DenyOverrides
-import stapl.core.FirstApplicable
-import stapl.core.CombinationAlgorithm
-import stapl.core.CombinationAlgorithmImplementation
-import stapl.core.CombinationAlgorithmImplementationBundle
-import stapl.core.SimpleCombinationAlgorithmImplementationBundle
 import scala.concurrent.Future
-import scala.concurrent.blocking
-import scala.concurrent.ExecutionContext.Implicits.global
-import stapl.core.CombinationAlgorithmImplementationBundle
-import scala.util.{ Try, Success, Failure }
-import stapl.core.SUBJECT
-import stapl.core.RESOURCE
-import stapl.core.ACTION
-import stapl.core.ENVIRONMENT
+import scala.util.{Success, Try}
+
+import grizzled.slf4j.Logging
+import stapl.core._
 
 /**
  * The base class of the context for evaluating a policy. This context

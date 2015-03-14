@@ -20,7 +20,7 @@
 package stapl
 
 import scala.language.implicitConversions
-import stapl.core.SimpleAttribute
+
 import org.joda.time.LocalDateTime
 
 package object core {

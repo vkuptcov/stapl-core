@@ -20,16 +20,8 @@
 package stapl.core.pdp
 
 import scala.collection.mutable.Map
-import stapl.core.subject
-import stapl.core.resource
-import stapl.core.action
-import stapl.core.Attribute
-import stapl.core.ConcreteValue
-import stapl.core.string2Value
-import stapl.core.AttributeContainerType
-import stapl.core.SUBJECT
-import stapl.core.RESOURCE
-import stapl.core.ACTION
+
+import stapl.core.{Attribute, ConcreteValue, string2Value}
 
 /**
  * A class used for representing the context of a request.

@@ -20,8 +20,6 @@
 package stapl.core
 
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import scala.util.{Try, Success, Failure}
 
 /**
  * The base trait for all attributes in policies. Each Value has a 

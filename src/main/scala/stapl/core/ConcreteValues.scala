@@ -19,14 +19,8 @@
  */
 package stapl.core
 
-import org.joda.time.LocalTime
-import org.joda.time.LocalDate
-import org.joda.time.LocalDateTime
-import org.joda.time.Period
+import org.joda.time.{LocalDate, LocalDateTime, LocalTime, Period}
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Try, Success, Failure}
 
 //object ConcreteValue {
 //  

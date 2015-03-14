@@ -19,11 +19,7 @@
  */
 package stapl.core
 
-import AttributeType._
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{ Try, Success, Failure }
 
 sealed abstract class Attribute(val cType: AttributeContainerType, val name: String, val aType: AttributeType)
   extends Value with Serializable {
@@ -56,7 +52,7 @@ case class ListAttribute(ct: AttributeContainerType, n: String, at: AttributeTyp
 }
 
 object ListAttribute {
-  import AttributeConstruction.UninitializedAttribute
+  import stapl.core.AttributeConstruction.UninitializedAttribute
   def apply(sType: AttributeType): UninitializedAttribute =
     (None, new ListAttribute(_: AttributeContainerType, _: String, sType))
 
@@ -74,7 +70,7 @@ case class SimpleAttribute(ct: AttributeContainerType, n: String, at: AttributeT
 }
 
 object SimpleAttribute {
-  import AttributeConstruction.UninitializedAttribute
+  import stapl.core.AttributeConstruction.UninitializedAttribute
   def apply(sType: AttributeType): UninitializedAttribute =
     (None, new SimpleAttribute(_: AttributeContainerType, _: String, sType))
 

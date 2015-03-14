@@ -19,13 +19,7 @@
  */
 package stapl.core
 
-import scala.annotation.tailrec
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import scala.concurrent.Promise
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.collection.mutable.Map
-import scala.util.{ Try, Success, Failure }
 
 /**
  * *************************

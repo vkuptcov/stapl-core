@@ -19,20 +19,9 @@
  */
 package stapl.core.pdp
 
-import stapl.core.AbstractPolicy
-import stapl.core.Attribute
-import stapl.core.ConcreteValue
-import stapl.core.Decision
-import stapl.core.Result
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.blocking
-import scala.concurrent.Await
-import scala.concurrent.duration._
-import scala.util.{ Try, Success, Failure }
 import scala.collection.mutable.ListBuffer
-import stapl.core.ObligationAction
-import stapl.core.ConcreteObligationAction
+
+import stapl.core.{AbstractPolicy, Attribute, ConcreteObligationAction, ConcreteValue, Result}
 
 /**
  * Class used for representing a policy decision point (PDP). A PDP provides

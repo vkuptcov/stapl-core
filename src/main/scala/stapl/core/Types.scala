@@ -19,8 +19,6 @@
  */
 package stapl.core
 
-import java.util.Date
-
 
 abstract class AttributeType {
   

@@ -21,10 +21,6 @@ package stapl.core
 
 import grizzled.slf4j.Logging
 import stapl.core.pdp.EvaluationCtx
-import scala.concurrent.Future
-import concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Promise
-import scala.util.{ Try, Success, Failure }
 
 /**
  * *******************************************

@@ -1,12 +1,9 @@
 package stapl.core.pdp
 
 import scala.annotation.tailrec
-import stapl.core.LogObligationAction
-import stapl.core.LogObligationAction
-import stapl.core.LogObligationAction
+
 import grizzled.slf4j.Logging
-import stapl.core.ConcreteObligationAction
-import stapl.core.ConcreteLogObligationAction
+import stapl.core.{ConcreteLogObligationAction, ConcreteObligationAction}
 
 /**
  * Class used for representing an obligation service. An obligation service
