@@ -25,7 +25,7 @@ import stapl.core.pdp.EvaluationCtx
  * An obligation consists of an action that should be fulfilled and the
  * effect on which the action should be fulfilled.
  */
-case class Obligation(val action: ObligationAction, val fulfillOn: Effect)
+case class Obligation(action: ObligationAction, fulfillOn: Effect)
 
 /**
  * Traits for representing obligations:
@@ -53,17 +53,17 @@ trait SimpleObligationAction extends ObligationAction with ConcreteObligationAct
 /**
  * Logging
  */
-case class LogObligationAction(val msg: Value) extends ObligationAction {
+case class LogObligationAction(msg: Value) extends ObligationAction {
 
   def getConcrete(implicit ctx: EvaluationCtx) = ConcreteLogObligationAction(msg.getConcreteValue(ctx).representation.toString)
 }
-case class ConcreteLogObligationAction(val msg: String) extends ConcreteObligationAction
+case class ConcreteLogObligationAction(msg: String) extends ConcreteObligationAction
 
 
 /**
  * Mailing
  */
-case class MailObligationAction(val to: String, val msg: String) extends SimpleObligationAction
+case class MailObligationAction(to: String, msg: String) extends SimpleObligationAction
 
 
 /**
@@ -72,8 +72,8 @@ case class MailObligationAction(val to: String, val msg: String) extends SimpleO
 sealed abstract class AttributeChangeType
 case object Update extends AttributeChangeType
 case object Append extends AttributeChangeType
-case class ChangeAttributeObligationAction(val attribute: Attribute, val value: Value, 
-    val changeType: AttributeChangeType) extends ObligationAction {
+case class ChangeAttributeObligationAction(attribute: Attribute, value: Value,
+  changeType: AttributeChangeType) extends ObligationAction {
 
   def getConcrete(implicit ctx: EvaluationCtx) = {
     val entityId = attribute.cType match {
@@ -84,6 +84,6 @@ case class ChangeAttributeObligationAction(val attribute: Attribute, val value: 
     ConcreteChangeAttributeObligationAction(entityId, attribute, value.getConcreteValue(ctx), changeType)
   }
 }
-case class ConcreteChangeAttributeObligationAction(val entityId: String, val attribute: Attribute, 
-    val value: ConcreteValue, val changeType: AttributeChangeType) extends ConcreteObligationAction
+case class ConcreteChangeAttributeObligationAction(entityId: String, attribute: Attribute,
+  value: ConcreteValue, changeType: AttributeChangeType) extends ConcreteObligationAction
 

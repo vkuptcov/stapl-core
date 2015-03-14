@@ -65,7 +65,7 @@ class PolicyParser {
   def parseFile(path: String): AbstractPolicy = {
     val source = io.Source.fromFile(path)
     val policyString = source.mkString
-    source.close
+    source.close()
     parse(policyString)
   }
 }
