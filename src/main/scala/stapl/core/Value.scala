@@ -33,35 +33,19 @@ trait Value {
   
   def getConcreteValue(ctx: EvaluationCtx): ConcreteValue
   
-  private def typeCheck(that: Value) {
-    AttributeType.checkType(that.aType, this.aType)
-  }
-  
   def in(that: Value): Expression = {
     if (this.isList || !that.isList)
       throw new UnsupportedOperationException("An in operation is only possible between a simple value and a list.")
     typeCheck(that)
-    if (List(DateTimeDuration, DayDuration, TimeDuration) contains this.aType)
-      throw new UnsupportedOperationException("An in operation is not possible for durations.")
+    durationTypeCheck("in")
     ValueIn(this, that)
   }
-  
-  /*def contains(that: Value): Expression = {
-    if (!this.isList || that.isList)
-      throw new UnsupportedOperationException("An in/contains operation is only possible between a list and a simple value.")
-    typeCheck(that)
-    if (List(DateTimeDuration, DayDuration, TimeDuration) contains this.aType)
-      throw new UnsupportedOperationException("An in/contains operation is not possible for durations.")
-    ValueIn(that, this)
-  }*/
-    
-  
+
   def ===(that: Value): Expression = {
     if (this.isList || that.isList)
       throw new UnsupportedOperationException("An equals operation is only possible between simple values.")
     typeCheck(that)
-    if (List(DateTimeDuration, DayDuration, TimeDuration) contains this.aType)
-      throw new UnsupportedOperationException("An equals operation is not possible for durations.")
+    durationTypeCheck("equals")
     EqualsValue(this, that)
   }
   
@@ -72,8 +56,7 @@ trait Value {
     if (this.isList || that.isList)
       throw new UnsupportedOperationException("A comparison operation is only possible between simple values.")
     typeCheck(that)
-    if (List(DateTimeDuration, DayDuration, TimeDuration) contains this.aType)
-      throw new UnsupportedOperationException("A comparison operation is not possible for durations.")
+    durationTypeCheck("comparison")
     GreaterThanValue(this, that)
   }
   
@@ -97,5 +80,14 @@ trait Value {
   
   def /(that: Value): Operation = {
     Division(this, that)
+  }
+
+  private def typeCheck(that: Value) {
+    AttributeType.checkType(that.aType, this.aType)
+  }
+
+  private def durationTypeCheck(operationName: String) {
+    if (List(DateTimeDuration, DayDuration, TimeDuration) contains this.aType)
+      throw new UnsupportedOperationException(s"An $operationName operation is not possible for durations.")
   }
 }

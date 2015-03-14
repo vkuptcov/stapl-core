@@ -19,12 +19,9 @@
  */
 package stapl.core.pdp
 
-import org.junit.Before
-import org.junit.BeforeClass
-import org.junit.Test
 import org.junit.Assert._
+import org.junit.{Before, BeforeClass, Test}
 import org.scalatest.junit.AssertionsForJUnit
-import stapl.core._
 
 object PolicyIdTest {
   
